@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 
 import userRouters from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.route.js";
-
+import cookieParser from "cookie-parser";
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
@@ -17,6 +17,7 @@ mongoose
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 const port = process.env.PORT;
 
